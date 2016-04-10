@@ -38,7 +38,5 @@ public class URLify{
 
 
 		return new String(newarr);
-
-
 	}
 }
