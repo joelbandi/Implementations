@@ -1,3 +1,6 @@
+/**
+ * This is a binary search tree 
+ */
 public class Tree {
 	protected Node root;
 	protected static class Node {
