@@ -1,6 +1,6 @@
 /**
  * GraphParse- A simple graph generator which parses a file containing an adjacency list
- * representation of a graph into the the memory of your program
+ * representation of a graph into the the memory of your program. It can only parse connected graph.
  */
 import java.io.IOException;
 import java.io.FileReader;
@@ -29,11 +29,15 @@ public class Graph{
 			}
 		}
 	}
+
 	public void dfs(){
+		
 	}
 	public void bfs(){
+		
 	}
 	public void work(){
+		
 	}
 	public boolean add(Node a,Node b) throws Exception{
 		

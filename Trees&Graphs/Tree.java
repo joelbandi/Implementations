@@ -1,5 +1,20 @@
 public class Tree {
-	public Node root;
+	private Node root;
+	private static class Node {
+	int value;
+	Node left;
+	Node right;
+	Node(int value) {
+		this.value = value;
+		this.left = null;
+		this.right = null;
+	}
+	public String toString() {
+		return "This node has value of " + value;
+	}
+}
+
+
 	Tree() {
 		this.root = null;
 	}
@@ -76,17 +91,4 @@ public class Tree {
 
 
 
-}
-class Node {
-	int value;
-	Node left;
-	Node right;
-	Node(int value) {
-		this.value = value;
-		this.left = null;
-		this.right = null;
-	}
-	public String toString() {
-		return "This node has value of " + value;
-	}
 }
