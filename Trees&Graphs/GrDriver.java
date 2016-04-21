@@ -12,7 +12,7 @@ public class GrDriver{
 		g.addEdge(4,6);
 		g.addEdge(5,6);
 
-		g.printNumEdges();
+		g.print();
 
 
 
