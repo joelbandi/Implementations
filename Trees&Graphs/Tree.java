@@ -13,7 +13,7 @@ public class Tree {
 			this.right = null;
 		}
 		public String toString() {
-			return "This node has value of " + value;
+			return "This node has value of " + this.value;
 		}
 	}
 	Tree() {
@@ -44,7 +44,6 @@ public class Tree {
 				}
 			}
 		}
-		return false;
 	}
 	public boolean remove(int value) {
 		return false;

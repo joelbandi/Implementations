@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Arrays;
+import java.util.*;
 
 
 public class Graph{
@@ -32,7 +28,27 @@ public class Graph{
 		return set.iterator();
 	}
 
-	public void print(){
+	public void printsize(){
 		System.out.println("size is "+ adj.size());
 	}
+
+
+	public void print(){
+		Iterator i = iterator();
+		while(i.hasNext()){
+			Map.Entry e = (Map.Entry)i.next();
+
+			for(String string : adj.get(e.getKey())){
+				System.out.print(e.getKey() + " -> ");
+				System.out.print(string);
+				System.out.println();
+			}
+		}
+	}
+
+
+	public ArrayList<String> getNeighbours(String s){
+		return adj.containsKey(s)? adj.get(s) : new ArrayList<String>();
+	}
+
 }
