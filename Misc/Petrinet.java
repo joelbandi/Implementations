@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.Iterator;
+import java.util.*;
 import java.io.*;
 
 
@@ -22,7 +19,8 @@ public class Petrinet{
 		cycles = Integer.parseInt(args[1]);
 
 		parse();
-		simulate();	
+		simulate();
+		print();	
 	}
 
 	public static void parse(){
@@ -62,7 +60,7 @@ public class Petrinet{
         }
         catch(FileNotFoundException ex) {
             System.out.println(
-                "Unable to open file '" + 
+                "Cannot find file '" + 
                 file + "'");                
         }
         catch(IOException ex) {
@@ -79,6 +77,8 @@ public class Petrinet{
     public static void transition(String transition){
     	transitions.put(transition,new Transition(transition));
     }
+
+
     //assuming a transition cannot directly to another transition
     public static void edge(String one, String two){
     	if(transitions.containsKey(one) && places.containsKey(two)){
@@ -94,12 +94,52 @@ public class Petrinet{
 
     public static void simulate(){
 
-    	for(int i = 1; i<= cycles; i++)
-    	Set set = transitions.entrySet();
-    	Iterator i = set.iterator();
+    	int itercount = 0;
+    	Boolean firedInThisPass = false;
+
+    	ArrayList<String> transitionnames = new ArrayList<String>();
+    	Iterator i = transitions.keySet().iterator();
+    	while(i.hasNext()){
+
+    		transitionnames.add((String)i.next());
+
+    	}
 
 
+    	while(true){
 
+    		for(String k : transitionnames){
+
+    			if(transitions.get(k).canFire()){
+    				transitions.get(k).fire();
+    				firedInThisPass = true;
+    				itercount++;
+    			}
+
+    			if(itercount>=cycles){
+    				return;
+    			}
+
+
+    			if(!firedInThisPass){
+    				break;
+    			}
+    		}
+
+    		firedInThisPass=false;
+
+    	}
+
+    }
+
+    public static void print(){
+    	System.out.println("Simulation results");
+    	System.out.println("After "+ cycles+" cycles: ");
+      	Iterator i = places.entrySet().iterator();
+      	while(i.hasNext()){
+      		Map.Entry me = (Map.Entry)i.next();
+      		System.out.println("  -> Place "+me.getKey()+" has "+me.getValue()+" tokens");
+      	}
     }
 }
 
@@ -134,6 +174,17 @@ class Transition{
 		return true;
 	}
 
+	public void fire(){
+		for(Place p : this.incoming){
+			if(p.tokencount>0){
+				p.tokencount--;
+			}
+		}
+
+		for(Place p : this.outgoing){
+			p.tokencount++;
+		}
+	}
 }
 
 
@@ -148,5 +199,11 @@ class Place{
 		this.name=name;
 		this.tokencount=tokencount;
 	}
+	
+
+	@Override
+    public String toString() {
+        return Integer.toString(tokencount);
+    }
 
 }
