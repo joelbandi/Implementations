@@ -1,3 +1,5 @@
+
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
@@ -18,7 +20,7 @@ public class Lambda_Complete {
 
         /** Firstly, what is a lambda expression exactly and how do we write it?
          *  a lambda expression looks like the following syntax '(parameters) -> do something;'
-         *  Upon closer investigation youll notice that ... a lambda expression is like a method except
+         *  Upon closer investigation you'll notice that ... a lambda expression is like a method except
          *  it does not require a return type and even a name (It's anonymous)
          *  you don't even have to  use 'new' keyword or even have block braces if only one statement
          */
@@ -43,7 +45,9 @@ public class Lambda_Complete {
          * In java, we already have many examples of such SAM interfaces.
          * From java 8, they will also be referred as functional interfaces as well.
          * Java 8, enforces the rule of single responsibility by
-         * marking these interfaces with a new annotation i.e. @FunctionalInterface.
+         *
+         *
+         * ----> marking these interfaces with a new annotation i.e. @FunctionalInterface.
          *
          *
          *
@@ -59,6 +63,11 @@ public class Lambda_Complete {
             }
         });
 
+        /**
+         * Lambda expressions always automatically infers the context from its lexical
+         * position in the code and acts accordingly
+         *
+         */
 
         /**
          * The consumer is a functional interface predefined and declared in java8 that runs whatever is given to it in the 'accept' method
@@ -66,12 +75,12 @@ public class Lambda_Complete {
          */
 
 
-        /** This is the age of the impatient young programmer who wants to type less and do more and java developers saw all the
+        /** This is the age of the impatient programmer who wants to type less and do more and java developers saw all the
          * unnecessary code we have to write in the case of the object reference passing and have desinged a more simpler and
          * faster way to write these out ..i.e using lambda expressions.  They are just syntactic sugar to ease in the functional
          * programming users like javascripters or scala users into an more OOP like design.
          *
-         * The accept methid and the default 'andThen' method in consumer functional interface translates object reference style code into
+         * The accept method and the default 'andThen' method in consumer functional interface translates object reference style code into
          * a lambda expression styled code..
          *
          */
@@ -83,11 +92,6 @@ public class Lambda_Complete {
          */
 
 
-        /**
-         * Lambda expressions always automatically infers the context from its lexical
-         * position in the code and acts accordingly
-         *
-         */
 
 
 
@@ -114,19 +118,39 @@ public class Lambda_Complete {
         }).start();
 
 
-        // Above same as
+        // Above code does the same as below
 
         new Thread(  ()-> System.out.println("Lambda : Hellow world from a runnable")  ).start();
 
 
+        /**
+         * Now let's call our forEach method which takes in a consumer interface as an input...
+         *
+         *
+         * Take a look at the forEach_Consumer method defintion in this file and follow along
+         *
+         *
+         */
+
+
+        // the object reference version
         forEach_Consumer(list, new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) {
                 System.out.println("forEach_Consumer, reference: the number in list is :" + integer);
             }
         });
+
+        // the lambda expression version of the same piece of code
         forEach_Consumer(list, (Integer i ) -> System.out.println("forEach_Consumer, lambda exp: the number in list is :" + i));
 
+
+        /**
+         * Now lets call our forEach_Doodad method which takes in a our own version of a SAM interface called Doodad
+         * check the definition of Doodad and definition of forEach_Doodad method below and tarry along
+         */
+
+        //  the object reference version
         forEach_Doodad(list, new Doodad<Integer>() {
             @Override
             public void absorb(Integer integer) {
@@ -134,14 +158,14 @@ public class Lambda_Complete {
             }
         });
 
-
+        // The lambda version of this code.
         forEach_Doodad(list, (Integer integer) -> System.out.println("forEach_Doodad, lambda exp: the number in list is :" + integer));
 
 
     }
 
 
-
+    // the function definition  of the forEach_Consumer method
 
     static void forEach_Consumer(List<Integer> list, Consumer<Integer> consumer){
 
@@ -155,6 +179,9 @@ public class Lambda_Complete {
     }
 
 
+
+    // the function definition of the forEach_Doodad method
+
     static void forEach_Doodad(List<Integer> list, Doodad<Integer> doodad){
 
         for(Integer i : list){
@@ -165,6 +192,8 @@ public class Lambda_Complete {
 
     }
 
+    
+    
 
     /** our own version of the the SAM interface/ functional interface
      *  we will name it doodad (idk..) and the single method as absorb.
