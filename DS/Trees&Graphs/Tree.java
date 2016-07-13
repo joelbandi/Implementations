@@ -75,7 +75,6 @@ public class Tree {
 		postorderTraverse(parent.right);
 		work(parent);
 	}
-	public void work(Node node) {
-		System.out.println(node.value);
-	}
+	abstract public void work(Node node);
+
 }
