@@ -15,6 +15,8 @@ public class Node{
 		}
 		n.next = end;
 		tail = n;
+
+		
 	}
 
 	void remove(int y){

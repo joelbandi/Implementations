@@ -4,7 +4,7 @@ public class Permute{
 	public static void main(String... params){
 
 
-		for(String i : solution("abc")){
+		for(String i : solution(params[0])){
 			System.out.println(i);
 		}
 
@@ -16,38 +16,51 @@ public class Permute{
 	
 	public static ArrayList<String> solution(String word){
 
-		// base case
-		if(word.length() <= 1){
-			return new ArrayList<String>(Arrays.asList(word));
+		ArrayList<String> result = new ArrayList<String>();
+
+
+		if(word.length() == 1){
+			result.add(word);
+			return result;
 		}
 
-		// first we generate the list of 
-		ArrayList<String> one = solution(word.substring(0,word.length()-1));
-		
-		ArrayList<String> two = new ArrayList<String>();
-		for(String s : one){
+		int lastIndex = word.length()-1;
+		String lastChar = word.substring(lastIndex);
+		String remaining = word.substring(0,lastIndex);
 
-			for(int i = 0; i < s.length() ; i++){
-				
-				if(i == 0){
-					two.add(word.substring(word.length()-1)+s);
-					continue;
-				}
-				
-				two.add(s.substring(0,i)+word.substring(word.length()-1)+s.substring(i));
-				
 
-				if(i == s.length()){
-					two.add(s+word.substring(word.length()-1));
-					continue;
-				}
+		result = merge(solution(remaining),lastChar);
+
+
+		return result;
+
+
+	}
+
+
+	public static ArrayList<String> merge(ArrayList<String> arr, String c){
+
+		ArrayList<String> res = new ArrayList<String>();
+
+		for(String s : arr){
+
+			for(int i = 0 ; i <= s.length() ; i++){
+
+				String ins = new StringBuffer(s).insert(i,c).toString();
+				res.add(ins);
 
 			}
+
 		}
 
+		return res;
 
-		return two;
+
 	}
+
+
+
+
 
 
 

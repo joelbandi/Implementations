@@ -13,7 +13,7 @@ public class Driver{
 		mylist.remove(4);
 		mylist.printem();
 		System.out.println("--");
-		mylist.remove(0);
+		mylist.remove(6);
 		mylist.printem();
 		System.out.println(mylist.isEmpty());
 
