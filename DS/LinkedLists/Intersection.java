@@ -18,12 +18,13 @@ public class Intersection{
 		LinkedList<Integer> second = new LinkedList<Integer>();
 
 
-		for(int i = 4; i<= 9; i++){
-			first.add(new Integer(i));
+		for(int i = 0; i<= 3; i++){
+
+			second.add(new Integer(i));
 		}
 
-		for(int i = 0; i<= 9; i++){
-
+		for(int i = 4; i<= 9; i++){
+			first.add(new Integer(i));
 			second.add(new Integer(i));
 		}
 
@@ -69,7 +70,8 @@ public class Intersection{
 
 		while(firstiter.hasNext()){
 
-			if(firstiter.next().equals(seconditer.next())){
+			if(firstiter.next().equals(seconditer.next()))
+			{
 				return firstiter.previous();
 			}
 
