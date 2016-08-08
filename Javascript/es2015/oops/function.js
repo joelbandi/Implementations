@@ -195,5 +195,33 @@ console.log(increment(4)); //5
 console.log(l);
 
 
+console.log("Augmenting Types"+l);
+
+String.prototype.isHelloWorld = function(){
+	if(this.valueOf() === 'Hello World!'){
+		return true;
+	}
+	return false;
+}
+
+var somestring = "Hellow!rld";
+console.log(somestring.isHelloWorld());
+
+// another way
+
+Function.prototype.method= function(name,func){
+	this.prototype[name] = func;
+	return this;
+}
+
+String.method('isTrue', function(){
+	if(this.valueOf() === 'True'){
+		return true;
+	}
+	return false;
+});
+
+console.log('True'.isTrue());
+
 
 

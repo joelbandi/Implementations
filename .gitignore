@@ -11,6 +11,7 @@ hs_err_pid*
 
 #java source files only
 # Blacklist everything
+.vscode/
 # Whitelist all directories
 !*/
 # Whitelist the file you're interested in. 
