@@ -10,9 +10,9 @@ public class Driver{
 		mylist.append(7);
 		mylist.printem();
 		System.out.println("--");
-		mylist.remove(4);
 		mylist.printem();
 		System.out.println("--");
+		mylist.remove(7);
 		mylist.remove(6);
 		mylist.printem();
 		System.out.println(mylist.isEmpty());
