@@ -1,6 +1,7 @@
 /**
  * This is a binary search tree 
  */
+import java.util.function.Consumer;
 public class Tree {
 	protected Node root;
 	protected static class Node {
@@ -18,6 +19,9 @@ public class Tree {
 	}
 	Tree() {
 		this.root = null;
+	}
+	public Node getRoot(){
+		return this.root;
 	}
 	public boolean add(int value) {
 		Node newNode = new Node(value);
@@ -45,9 +49,7 @@ public class Tree {
 			}
 		}
 	}
-	public boolean remove(int value) {
-		return false;
-	}
+	
 	public void inorderTraverse(Node node) {
 		if (node == null) {
 			return;
@@ -75,6 +77,13 @@ public class Tree {
 		postorderTraverse(parent.right);
 		work(parent);
 	}
-	abstract public void work(Node node);
+
+	public void work(Node node){
+		System.out.println(node.toString());
+	}
+
+
+	
+
 
 }
