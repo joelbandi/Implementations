@@ -4,25 +4,14 @@
 import java.util.function.Consumer;
 public class Tree {
 	protected Node root;
-	protected static class Node {
-		int value;
-		Node left;
-		Node right;
-		Node(int value) {
-			this.value = value;
-			this.left = null;
-			this.right = null;
-		}
-		public String toString() {
-			return "This node has value of " + this.value;
-		}
-	}
 	Tree() {
 		this.root = null;
 	}
 	public Node getRoot(){
 		return this.root;
 	}
+	
+
 	public boolean add(int value) {
 		Node newNode = new Node(value);
 		if (root == null) {
@@ -81,6 +70,7 @@ public class Tree {
 	public void work(Node node){
 		System.out.println(node.toString());
 	}
+	
 
 
 	

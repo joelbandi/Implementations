@@ -9,9 +9,9 @@ public class TrDriver{
 		System.out.println("In order Traversal");
 		tree.inorderTraverse(tree.getRoot());
 		System.out.println("Pre order Traversal");
-		tree.preorderTraverse(tree.root);
+		tree.preorderTraverse(tree.getRoot());
 		System.out.println("Post order Traversal");
-		tree.postorderTraverse(tree.root);
+		tree.postorderTraverse(tree.getRoot());
 
 
 		
