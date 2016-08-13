@@ -7,6 +7,9 @@ function one(success) {
     	}
     });
 }
+
+
+
 one(false).then(function(data){
 	console.log(data);
 },function(data){

@@ -4,7 +4,7 @@ public class StringReverse{
 		Scanner inp = new Scanner(System.in);
 		System.out.print("Enter string here -> ");
 		String i = inp.next();
-		System.out.print(i.length());cd
+		System.out.print(i.length());
 	}
 
 }

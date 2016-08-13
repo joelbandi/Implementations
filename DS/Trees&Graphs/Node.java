@@ -10,4 +10,12 @@ public class Node {
 		public String toString() {
 			return "This node has value of " + this.value;
 		}
+
+		public Node getLeft(){
+			return this.left;
+		}
+
+		public Node getRight(){
+			return this.right;
+		}
 	}
