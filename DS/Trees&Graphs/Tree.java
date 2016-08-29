@@ -31,7 +31,7 @@ public class Tree {
 					if (parent.right == null) {
 						parent.right = newNode;
 						return true;
-					} else {
+					} else {	
 						parent = parent.right;
 					}
 				}
