@@ -171,7 +171,7 @@ import java.util.ArrayList;
         }
 
         return (left == null)? right : left;
-
+        
      }
 
      public static Btree LCA3_1(Btree root, Btree tree1, Btree tree2){

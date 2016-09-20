@@ -14,7 +14,7 @@ one(false).then(function(data){
 	console.log(data);
 },function(data){
 	console.log(data)
-});
+});	
 
 console.log('===========');
 
@@ -26,6 +26,8 @@ one(true).then(function(data){
 	return one(false);
 }).then(function(data){
 	console.log(data);
+},function(data){
+	console.log('data is '+data);
 });
 
 

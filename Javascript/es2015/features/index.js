@@ -3,7 +3,6 @@ var greet = function(name = 'World!'){
 	console.log('hello '+ name);
 };
 
-
 greet();
 greet('joel');
 greet('ronaldo');
