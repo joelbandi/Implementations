@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.util.function.Consumer;
 
 public class Graph{
 	
@@ -49,6 +49,22 @@ public class Graph{
 
 	public ArrayList<String> getNeighbours(String s){
 		return adj.containsKey(s)? adj.get(s) : new ArrayList<String>();
+	}
+
+	public void DFS(String root,Consumer<String> consumer){
+		
+		// DFS with a recursive implementation
+
+		if(!adj.containsKey(root)){
+			return;
+		}
+
+		for(String s : getNeighbours(root)){
+			DFS(s,consumer);
+			consumer.accept(s);
+		}
+		consumer.accept(root);
+
 	}
 
 }

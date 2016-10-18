@@ -26,15 +26,15 @@
  * 2. If root node isnt equal to neither of them then, recurse for both left and right node and store the returned nodes
  * 3. If both nodes are not null then return the current iterations root node as ans
  * 4. If only one of them is null then return the non null node as the ans
- * 5. . Also this assumes that both nodes are present in node
- * 6. to overcome above problem just use a couple of booleans in the global namespace to indicate present nodes 
+ * 5. Also this assumes that both nodes are present in node
+ * 6. To overcome above problem just use a couple of booleans in the global namespace to indicate present nodes 
  * 
  * 
  * 
  * LCA OF BINARY SEARCH TREES :
  * 
  * METHOD 3.1 -> O(h)runtime h=height of tree;  single traversal 
- * 1. Traverse from the root of the tree and the first node whose valule lies between the two argument nodes is the LCA
+ * 1. Traverse from the root of the tree and the first node whose value lies between the two argument nodes is the LCA
  * 2. Keep checking if youre going to the left or right of the range between the two argument nodesa dn traverse accordingly 
  * 3. Traverse either iterativley or recursively whatever your fancy about
  * 
