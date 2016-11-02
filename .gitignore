@@ -5,6 +5,7 @@
 *.war
 *.ear
 *.log
+*.lck
 node_modules
 
 
