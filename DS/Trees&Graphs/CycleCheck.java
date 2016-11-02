@@ -17,10 +17,10 @@ public class CycleCheck {
 
         Node a = new Node(1);
         Node b = new Node(2);
-        Node c = new Node(2);
-        Node d = new Node(2);
-        Node e = new Node(2);
-        Node f = new Node(2);
+        Node c = new Node(3);
+        Node d = new Node(4);
+        Node e = new Node(5);
+        Node f = new Node(6);
 
         a.add(b);
         a.add(c);
@@ -29,10 +29,19 @@ public class CycleCheck {
         e.add(f);
         // comment next line to see difference
         f.add(c);
+        b.add(f);
+        d.add(f);
 
 
 
-        System.out.println(one_a(a));
+        // System.out.println(one_a(a));
+        Stack<Node> s = new Stack<Node>();
+        toposort(a,s);
+        System.out.println(Arrays.toString(s.toArray()));
+
+        
+
+
         
     }
 
@@ -53,18 +62,19 @@ public class CycleCheck {
             return this;
         }
 
+        public String toString(){
+            return Integer.toString(this.value);
+        }
+
     }
 
 
     public static boolean one_a(Node root){
 
-
         if(root.status == "processing"){
             return true;
-        }else{
-            root.status = "processing";
         }
-
+        root.status = "processing";
 
         for(Node n: root.neighbours){
            if(one_a(n)){
@@ -73,8 +83,27 @@ public class CycleCheck {
         }
 
         root.status = "visited";
-
         return false;
+
+    }
+
+    public static void toposort(Node root,Stack<Node> s){
+
+        if(root.status == "visited"){
+            return;
+        }
+
+
+
+        for(Node n : root.neighbours){
+
+            toposort(n,s);
+
+        }
+
+        root.status="visited";
+        s.push(root);
+
 
     }
 

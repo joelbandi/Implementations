@@ -49,7 +49,7 @@ public class Stringlearn{
 
 		// .replaceAll(String regex, String replacement);
 
-		// String[]	split(String regex) plits a string around the reger pattern and returns a string array
+		// String[]	split(String regex) splits a string around the regex pattern and returns a string array
 
 		// .toCharArray() , .toLowerCase() , .toUpperCase();
 
