@@ -2,8 +2,8 @@
 
 const cp = require('child_process');
 const spawn = cp.spawn;
-// const exec = cp.exec;
-// const fs = require('fs');
+const exec = cp.exec;
+const fs = require('fs');
 const path =  require('path');
 
 //random message for testing
@@ -29,7 +29,7 @@ const path =  require('path');
 
 //lets print this source file itself
 
-// var readstream = fs.createReadStream(__filename);
+// var readstream = fs.createReadStream('inq.js');
 // var outputstream = process.stdout;
 // readstream.pipe(outputstream);
 

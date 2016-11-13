@@ -11,7 +11,7 @@ public class DP {
         System.out.println(Arrays.toString(res2));
 
         int res3 = fibo_bottom_up_upgrade(14);
-        // System.out.println(res3);
+        System.out.println(res3);
 
         
         

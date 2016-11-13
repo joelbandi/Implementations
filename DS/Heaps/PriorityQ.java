@@ -40,6 +40,6 @@ class StringLengthComparator implements Comparator<String>
 
         
 
-        return  - x.length() + y.length();
+        return   x.length() - y.length();
     }
 }

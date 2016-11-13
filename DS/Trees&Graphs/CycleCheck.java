@@ -35,9 +35,13 @@ public class CycleCheck {
 
 
         // System.out.println(one_a(a));
-        Stack<Node> s = new Stack<Node>();
-        toposort(a,s);
-        System.out.println(Arrays.toString(s.toArray()));
+        try{
+            Stack<Node> s = new Stack<Node>();
+            toposort(a,s);
+            System.out.println(Arrays.toString(s.toArray()));
+        }catch(StackOverflowError err){
+            System.out.println("No such order");
+        }
 
         
 
@@ -87,12 +91,11 @@ public class CycleCheck {
 
     }
 
-    public static void toposort(Node root,Stack<Node> s){
+    public static void toposort(Node root,Stack<Node> s) throws StackOverflowError{
 
         if(root.status == "visited"){
             return;
         }
-
 
 
         for(Node n : root.neighbours){

@@ -6,11 +6,15 @@ public class Kadane{
 	}
 
 	public static void solution(int[] array){
+		
+		//initialize variables here
 		int bestEver = 0;
 		int bestTail = 0;
 		int bestHead = 0;
 		int currentHead = 0;
 		int currentSum = 0;
+
+		// Actual processing here
 		for (int i = 0; i< array.length; i++){
 			currentSum += array[i];
 			if(currentSum <= 0){
@@ -22,6 +26,10 @@ public class Kadane{
 				bestHead = currentHead;
 			}
 		}
+
+
+
+		// printing stuff here.. not a part of the algorithm
 		System.out.println("Best sum is : "+ bestEver);
 		System.out.print("Maximum subarray is: ");
 		for(int i = bestHead+1; i<= bestTail ; i++){

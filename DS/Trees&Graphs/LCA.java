@@ -159,6 +159,8 @@ import java.util.ArrayList;
         if(root == null){
             return null;
         }
+
+        
         Btree left = LCA2_2(root.left,tree1,tree2);
         Btree right = LCA2_2(root.right,tree1,tree2);
 

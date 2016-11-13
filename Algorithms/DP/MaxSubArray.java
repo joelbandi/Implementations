@@ -10,18 +10,14 @@ public class MaxSubArray {
 
     public static int solution(int[] arr){
 
-        int currentmax = 0-Integer.MAX_VALUE;
-        int globalmax = 0-Integer.MAX_VALUE;
+        int currentmax = Integer.MIN_VALUE;
+        int globalmax = Integer.MIN_VALUE;
 
         for(int i = 0; i< arr.length ; i++){
-
             currentmax = Math.max(arr[i],currentmax+arr[i]);
             globalmax = Math.max(globalmax,currentmax);
-
         }
-
         return globalmax;
-
     }
 
 

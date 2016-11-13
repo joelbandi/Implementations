@@ -26,7 +26,7 @@ public class ClosestStars{
         }
 
         int count= 0;
-        while (queue.size() != 0 && count < 10)
+        while (queue.size() != 0 && count < 3)
         {
             System.out.println(queue.remove());
             count++;
@@ -50,7 +50,7 @@ public class ClosestStars{
         }
 
         public String toString(){
-            return x+" "+y+" "+z;
+            return x+" "+y+" "+z + " at a distance of "+ Math.round(dist*100.0)/100.0 + " light years";
         }
     }
 

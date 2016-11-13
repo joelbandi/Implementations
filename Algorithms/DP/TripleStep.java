@@ -52,7 +52,7 @@ public class TripleStep {
         }
 
         if(n == 2 ){
-            return n+1;
+            return 3;
         }
 
         int[] cache = new int[n+1];
