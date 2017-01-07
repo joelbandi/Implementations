@@ -25,12 +25,15 @@ public class ClosestStars{
             ex.printStackTrace();
         }
 
+        System.out.println(Arrays.toString(queue.toArray()));
         int count= 0;
         while (queue.size() != 0 && count < 3)
         {
             System.out.println(queue.remove());
             count++;
         }
+
+
 
 
 
@@ -50,7 +53,9 @@ public class ClosestStars{
         }
 
         public String toString(){
-            return x+" "+y+" "+z + " at a distance of "+ Math.round(dist*100.0)/100.0 + " light years";
+            // return x+" "+y+" "+z + " at a distance of "+ Math.round(dist*100.0)/100.0 + " light years";
+            return x+" "+y+" "+z;
+            
         }
     }
 

@@ -1,7 +1,7 @@
 // better then MaximumSumPath's implementation'
 public class MinimumSumPath {
     public static void main(String[] args) {
-        
+
         System.out.println(solution(new int[][]{{1,5,6},{2,3,5},{7,8,4}}));
 
     }
@@ -24,7 +24,7 @@ public class MinimumSumPath {
         // top most row
         for(int i = 1; i< n; i++){
             cache[0][i] = cache[0][i-1] + grid[0][i];
-        } 
+        }
 
         // leftmost column fill it up
         for(int i = 1 ; i< m; i++){

@@ -58,9 +58,9 @@ const path =  require('path');
 
 
 // how to run other system binaries from your node process or create a new node process??
-// exec('ls -l',(err,stdout,stderr) => {
-//     console.log('ls -l has been executed \n\n',stdout);
-// });
+exec('ls -l',(err,stdout,stderr) => {
+    console.log('ls -l has been executed \n\n',stdout);
+});
 
 //we can also use spawn
 // spawn return the process object of the child process which is known as childProcess which is somewhat similar to 
