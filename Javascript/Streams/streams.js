@@ -1,4 +1,9 @@
 /*
+
+READ THIS : https://github.com/substack/stream-handbook
+for more info
+
+
  Streams are just a standard interface in Node.js 
  IF you expose your API as a stream it will be compatible with a 
  whole lot of other software.
@@ -60,3 +65,32 @@ actualBearTransform.prototype._transform = function(chunk,enc,done) {
 }
 var actualBears = fs.createWriteStream('./actualBears');
 bears.pipe(new actualBearTransform()).pipe(actualBears);
+
+
+/*
+ Let's deep dive into Node Streams.
+ A lot of interfaces in node depend on streams including the likes of http server response and request objects.
+
+ Streams often look like these -> source.pipe(destination);
+ where source can be a readable || duplex stream
+ where destination can be a writable || duplex stream.
+
+ A Bestiary of streams:
+ -> Readable
+ -> writable
+ -> duplex
+    ~>Tranform
+  
+  Here, tranform stream is a special kind of a duplex stream.
+  It acts as a middle stream between two streams and it fits like these
+
+  source.pipe(transform).pipe(destination);
+  
+  transforms are powerful -> they can do simple like convert streams to capital letters, filter stuff or even compression and video encoding 
+ 
+  What makes streams so good and useful for performance and scalability?
+
+  -> Writable streams mist send a signal back to readable streams that theyre ready for more data. This means that the readable streams reads data into memory only when its needed. SUPER!!!. It is configurable, which means you can decide when the writable buffer gets full so as to pause the readable stream from procuring data. This is called configurable water-mark (Think dams)
+  -> Back pressure is the destination streams way to telling or signaling a source stream to stop sending data
+ 
+ */
