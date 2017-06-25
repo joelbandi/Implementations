@@ -1,0 +1,4 @@
+[submodule "EPI"]
+	path = EPI
+	url = git@github.com:joelbandi/EPI.git
+	branch = master
