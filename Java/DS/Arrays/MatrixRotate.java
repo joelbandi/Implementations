@@ -23,6 +23,8 @@ public class MatrixRotate {
             for(int j = i; j< a[i].length-1; j++){
 
                 //backups
+
+                
                 int top = a[i][j];
                 int right = a[j][a[i].length-1];
                 int bottom = a[a.length-1-i][a[i].length-1-j];

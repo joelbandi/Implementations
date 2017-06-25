@@ -19,7 +19,7 @@ public class AllPalindromes{
 				val++;
 				hm.put(new Character(s.charAt(i)),new Integer(val));
 			}else{
-				hm.put(new Character(s.charAt(i)),new Integer(1));
+				hm.put(new Characnewter(s.charAt(i)),new Integer(1));
 			}
 		}
 		return hm;	

@@ -17,7 +17,7 @@ public class Threesum {
         Arrays.sort(a);
         int l,r;
         for(int i=0;i<a.length-2;i++){
-            l = i++;
+            l = i+1;
             r = a.length-1;
 
             while(l<r){
