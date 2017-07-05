@@ -22,7 +22,7 @@ public class Levelorder {
   private int depth(Tree t) {
 
     if (t == null) return 0;
-    return 1 + depth(t.right) + depth(t.left);
+    return 1 + Math.max(depth(t.right),depth(t.left));
 
   }
 
